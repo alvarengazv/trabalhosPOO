@@ -10,6 +10,7 @@ class Livro {
     Autor autor;
 
    public:
+    Livro();
     Livro(string titulo, Autor autor, string ISBN);
     string getTitulo();
     void setTitulo(string titulo);

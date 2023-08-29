@@ -2,6 +2,8 @@
 
 using namespace std;
 
+Livro::Livro() {}
+
 Livro::Livro(string titulo, Autor autor, string ISBN) {
     this->titulo = titulo;
     this->autor = autor;

@@ -3,10 +3,12 @@
 #include <string>
 #include <list>
 #include <iostream>
-using namespace std;
 
 #include "Livro.hpp"
+#include "Autor.hpp"
+
 using namespace std;
+
 class Biblioteca {
    private:
     list<Livro> livros;
