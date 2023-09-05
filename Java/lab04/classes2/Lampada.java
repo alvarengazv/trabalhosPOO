@@ -4,12 +4,19 @@ public class Lampada {
 	private String modelo;
 	private int tensao;
 	private Boolean estado;
+	public static int cont = 0;
+	
+	public Lampada() {
+		super();
+		cont++;
+	}
 	
 	public Lampada(String modelo, int tensao) {
 		super();
 		this.modelo = modelo;
 		this.tensao = tensao;
 		this.estado = false;
+		cont++;
 	}
 	
 	public String getModelo() {
