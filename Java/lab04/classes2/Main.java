@@ -34,7 +34,7 @@ public class Main {
 		
 		System.out.println(l.mostraEstado());
 		
-		System.out.println("Foram criadas " + Lampada.cont + " instâncias da classe Lâmpada.");
+		System.out.println("Foram criadas " + Lampada.getCont() + " instâncias da classe Lâmpada.");
 		
 		Lampada l2 = new Lampada("L teste", 220);
 		System.out.println("Modelo da lâmpada: " + l2.getModelo());
@@ -51,7 +51,7 @@ public class Main {
 		
 		System.out.println(l2.mostraEstado());
 		
-		System.out.println("Foram criadas " + Lampada.cont + " instâncias da classe Lâmpada.");
+		System.out.println("Foram criadas " + Lampada.getCont() + " instâncias da classe Lâmpada.");
 		
 		scanner.close();
 	}

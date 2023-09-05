@@ -4,8 +4,8 @@ public class Triangulo {
 	private float a;
 	private float b;
 	private float c;
-	public static int cont = 0;
-	
+	private static int cont = 0;
+
 	public Triangulo() {
 		this.a = 1f;
 		this.b = 1f;
@@ -19,6 +19,14 @@ public class Triangulo {
 		this.b = b;
 		this.c = c;
 		cont++;
+	}
+	
+	public static int getCont() {
+		return cont;
+	}
+
+	public static void setCont(int cont) {
+		Triangulo.cont = cont;
 	}
 	
 	public float getA() {

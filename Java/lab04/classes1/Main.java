@@ -30,21 +30,21 @@ public class Main {
 			System.out.println("Não é possível criar um triângulo com esses valores!");
 		}
 		
-		System.out.println("Foram criadas " + Triangulo.cont + " instâncias da classe Triângulo.");
+		System.out.println("Foram criadas " + Triangulo.getCont() + " instâncias da classe Triângulo.");
 		
 		Triangulo t2 = new Triangulo();
 		
 		System.out.println("Este é um triângulo " + t2.tipoTriangulo());
 		System.out.println("Lado A: " + t2.getA() + "\tLado B: " + t2.getB() + "\tLado C: " + t2.getC());
 		
-		System.out.println("Foram criadas " + Triangulo.cont + " instâncias da classe Triângulo.");
+		System.out.println("Foram criadas " + Triangulo.getCont() + " instâncias da classe Triângulo.");
 		
 		Triangulo t3 = new Triangulo(3, 4, 5);
 		
 		System.out.println("Este é um triângulo " + t3.tipoTriangulo());
 		System.out.println("Lado A: " + t3.getA() + "\tLado B: " + t3.getB() + "\tLado C: " + t3.getC());
 		
-		System.out.println("Foram criadas " + Triangulo.cont + " instâncias da classe Triângulo.");
+		System.out.println("Foram criadas " + Triangulo.getCont() + " instâncias da classe Triângulo.");
 		
 		scanner.close();
 	}

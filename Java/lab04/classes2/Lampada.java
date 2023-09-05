@@ -4,7 +4,8 @@ public class Lampada {
 	private String modelo;
 	private int tensao;
 	private Boolean estado;
-	public static int cont = 0;
+	private static int cont = 0;
+	
 	
 	public Lampada() {
 		super();
@@ -17,6 +18,14 @@ public class Lampada {
 		this.tensao = tensao;
 		this.estado = false;
 		cont++;
+	}
+	
+	public static int getCont() {
+		return cont;
+	}
+
+	public static void setCont(int cont) {
+		Lampada.cont = cont;
 	}
 	
 	public String getModelo() {
