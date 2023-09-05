@@ -53,8 +53,6 @@ public class Main {
 		
 		System.out.println("Foram criadas " + Lampada.cont + " instâncias da classe Lâmpada.");
 		
-		
-		
 		scanner.close();
 	}
 

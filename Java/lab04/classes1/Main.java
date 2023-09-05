@@ -46,8 +46,6 @@ public class Main {
 		
 		System.out.println("Foram criadas " + Triangulo.cont + " instâncias da classe Triângulo.");
 		
-		
-		
 		scanner.close();
 	}
 
