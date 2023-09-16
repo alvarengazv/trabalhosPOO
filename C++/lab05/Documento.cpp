@@ -9,6 +9,7 @@ Documento::Documento(string nomeArquivo, int numPaginas, int prioridade) {
     this->nomeArquivo = nomeArquivo;
     this->numPaginas = numPaginas;
     this->prioridade = prioridade;
+    this->prox = NULL;
 
     this->contDocumentos++;
 

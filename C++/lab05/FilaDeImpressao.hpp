@@ -12,13 +12,12 @@ class FilaDeImpressao {
 
    public:
     FilaDeImpressao();
-    FilaDeImpressao(string nomeArquivo, int numPaginas, int prioridade);
+    FilaDeImpressao(Documento *d);
     virtual ~FilaDeImpressao();
     void mostrarFilaDeImpressao();
-    void mostrarTodos();
     bool vazia();
     void inserirDocumento(Documento *p, string palavraChave);
-    int size();
+    int getQtdDocumentos();
     void buscarDocumento(int id);
     bool existe(int id);
     void remover(int id);
