@@ -24,7 +24,7 @@ int main() {
                 string nomeArquivo;
                 int numPaginas, prioridade;
                 cout << endl << "---------------------CADASTRO DE DOCUMENTOS---------------------" << endl;
-                fflush(stdin);
+                cin.ignore(1000, '\n');
                 cout << endl << "NOME DO DOCUMENTO: ";
                 getline(cin, nomeArquivo);
                 cout << endl << "NUMERO DE PAGINAS DO DOCUMENTO: ";

@@ -171,7 +171,7 @@ void FilaDeImpressao::alterar(int id) {
 
         switch (escolha) {
             case 1: {
-                fflush(stdin);
+                cin.ignore(1000, '\n');
                 cout << endl
                         << "Digite o novo nome do documento: ";
                 getline(cin, dadoString);
