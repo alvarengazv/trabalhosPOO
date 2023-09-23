@@ -132,7 +132,7 @@ void FilaDeImpressao::remover(int id) {
             cout << "Numero de paginas do Documento " << pAux->getNumPaginas() << endl;
             cout << "Prioridade do Documento " << pAux->getPrioridade() << endl;
             this->qtdDocumentos--;
-            cout << "Resta(m) " << this->qtdDocumentos << " documento(s) na fila de impressao." << endl;
+            cout << endl << "Resta(m) " << this->qtdDocumentos << " documento(s) na fila de impressao." << endl;
             this->mostrarFilaDeImpressao();
             delete pAux;
 
@@ -162,8 +162,8 @@ void FilaDeImpressao::alterar(int id) {
         cout << endl
                 << "Documento " << pAlterado->getId() << endl;
         cout << "Nome do Documento: " << pAlterado->getNomeArquivo() << endl;
-        cout << "Numero de paginas do Documento " << pAlterado->getNumPaginas() << endl;
-        cout << "Prioridade do Documento " << pAlterado->getPrioridade() << endl;
+        cout << "Numero de paginas do Documento: " << pAlterado->getNumPaginas() << endl;
+        cout << "Prioridade do Documento: " << pAlterado->getPrioridade() << endl;
 
         cout << endl
                 << "Escolha o dado que voce deseja alterar (1 = NOME DO DOCUMENTO, 2 = NUMERO DE PAGINAS, 3 = PRIORIDADE, -1 = SAIR): ";

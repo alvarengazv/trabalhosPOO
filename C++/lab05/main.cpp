@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
-#include "Documento.hpp"
-#include "FilaDeImpressao.hpp"
+#include "Classes/Documento.hpp"
+#include "Classes/FilaDeImpressao.hpp"
 
 using namespace std;
 
@@ -70,6 +70,7 @@ int main() {
                     cout << endl << "Lista vazia!" << endl;
                     cout << endl << "----------------------------------------------------------------" << endl;
                     break;
+          
                 }
                 fila->mostrarFilaDeImpressao();
 
