@@ -54,9 +54,7 @@ public class Main {
 							p.setDescricao(s.nextLine());
 							
 							System.out.println("Valor do pedido: ");
-							double a;
-							a = Double.parseDouble(s.nextLine());
-							p.setValor(a);
+							p.setValor(s.nextDouble());
 							
 							p.setCliente(c);
 							c.getListaPedidos().add(p);
@@ -121,12 +119,12 @@ public class Main {
 					System.out.print("\nDigite o número do cliente: ");
 					String telefone = s.nextLine();
 					
-					clientes.forEach(c -> {
+					for(Cliente c: clientes){
 						if(c.getTelefone().equals(telefone)) {
 							c.listarPedidos();
 							check[0]++;
 						}
-					});
+					}
 					if(check[0] != 1) {
 						System.out.println("Não há clientes com esse número.");
 					}
@@ -134,12 +132,12 @@ public class Main {
 					System.out.print("\nDigite o nome do cliente: ");
 					String nome = s.nextLine();
 					
-					clientes.forEach(c -> {
+					for(Cliente c: clientes){
 						if(c.getNome().equals(nome)) {
 							c.listarPedidos();
 							check[0]++;
 						}
-					});
+					}
 					if(check[0] != 1) {
 						System.out.println("Não há clientes com esse nome.");
 					}
@@ -159,12 +157,12 @@ public class Main {
 					System.out.print("\nDigite o número do cliente: ");
 					String telefone = s.nextLine();
 					
-					clientes.forEach(c -> {
+					for(Cliente c: clientes){
 						if(c.getTelefone().equals(telefone)) {
 							System.out.println("Valor total gasto: " + c.valorTotal());
 							check[0]++;
 						}
-					});
+					}
 					if(check[0] != 1) {
 						System.out.println("Não há clientes com esse número.");
 					}
@@ -172,12 +170,12 @@ public class Main {
 					System.out.print("\nDigite o nome do cliente: ");
 					String nome = s.nextLine();
 					
-					clientes.forEach(c -> {
+					for(Cliente c: clientes){
 						if(c.getNome().equals(nome)) {
 							System.out.println("Valor total gasto: " + c.valorTotal());
 							check[0]++;
 						}
-					});
+					}
 					if(check[0] != 1) {
 						System.out.println("Não há clientes com esse nome.");
 					}
