@@ -1,13 +1,16 @@
 package main;
 
-import java.util.Scanner;
+import consultas.Consulta;
+import consultas.Consultorio;
+import pessoas.Pessoa;
+import pessoas.Medico;
+import pessoas.Paciente;
 
-import consultas.*;
-import pessoas.*;
+import java.util.Scanner;
 
 public class Main {
 	final static String nomeConsultorio = "Ser Espaço Terapêutico";
-	final static int telefoneConsultorio = 88889999;
+	final static String telefoneConsultorio = "(37) 99988-5522";
 	final static String enderecoConsultorio = "Rua Pernambuco 525";
 	static Consultorio consultorio = new Consultorio(telefoneConsultorio, enderecoConsultorio, nomeConsultorio);
 	
@@ -136,21 +139,84 @@ public class Main {
 		System.out.println("Nome: ");
 		p.setNome(sc.nextLine());
 
-		System.out.println("Sexo (M ou F): ");
-		p.setSexo(sc.next().charAt(0));
-		sc.nextLine();
+		boolean verificado;
+		char sexo;
+
+		do {
+			verificado = true;
+			System.out.println("Sexo (M ou F): ");
+			sexo = sc.next().charAt(0);
+			sc.nextLine();
+
+			if(sexo != 'M' && sexo != 'F'){
+				verificado = false;
+				System.out.println("Digite M ou F!");
+			}
+
+		}while(!verificado);
+
+		p.setSexo(sexo);
 
 		System.out.println("Endereço: ");
 		p.setEndereco(sc.nextLine());
 
-		System.out.println("CPF: ");
-		p.setCpf(sc.nextLine());
+		boolean existe;
+		String cpf;
+		do{
+			existe = false;
+			System.out.println("CPF: ");
+			cpf = sc.nextLine();
+
+			for(Pessoa pessoa : consultorio.getPaciente()){
+				if(pessoa.getCpf().equals(cpf)){
+					existe = true;
+					System.out.println("Já existe uma pessoa cadastrada com este CPF!");
+					break;
+				}
+			}
+
+			for(Pessoa pessoa : consultorio.getMedicos()){
+				if(pessoa.getCpf().equals(cpf)){
+					existe = true;
+					System.out.println("Já existe uma pessoa cadastrada com este CPF!");
+					break;
+				}
+			}
+
+		}while(existe);
+
+		p.setCpf(cpf);
 
 		System.out.println("Telefone: ");
-		p.setTelefone(sc.nextInt());
+		p.setTelefone(sc.nextLine());
 
-		System.out.println("Identidade: ");
-		p.setIdentidade(sc.nextInt());
+		int identidade;
+
+		do{
+			existe = false;
+			System.out.println("Identidade: ");
+			identidade = sc.nextInt();
+
+			for(Pessoa pessoa : consultorio.getPaciente()){
+				if(pessoa.getIdentidade() == identidade){
+					existe = true;
+					System.out.println("Já existe uma pessoa cadastrada com este número de Identidade!");
+					break;
+				}
+			}
+
+			for(Pessoa pessoa : consultorio.getMedicos()){
+				if(pessoa.getIdentidade() == identidade){
+					existe = true;
+					System.out.println("Já existe uma pessoa cadastrada com este número de Identidade!");
+					break;
+				}
+			}
+		}while(existe);
+
+		p.setIdentidade(identidade);
+
+
 		
 		return p;
 	}
@@ -158,10 +224,26 @@ public class Main {
 	public static void cadastrarMedico(Scanner sc) {
 		Pessoa p = cadastrarPessoa(sc);
 		Medico m = new Medico(p.getNome(), p.getSexo(), p.getEndereco(), p.getCpf(), p.getTelefone(), p.getIdentidade());
-		
-		System.out.println("CRM: ");
-		m.setCrm(sc.nextInt());
-		sc.nextLine();
+
+		boolean existe;
+		int crm;
+
+		do{
+			existe = false;
+			System.out.println("CRM: ");
+			crm = sc.nextInt();
+			sc.nextLine();
+
+			for(Medico medico : consultorio.getMedicos()){
+				if(medico.getCrm() == crm){
+					existe = true;
+					System.out.println("Já existe um médico cadastrado com este CRM!");
+					break;
+				}
+			}
+		}while(existe);
+
+		m.setCrm(crm);
 
 		System.out.println("Especialidade: ");
 		m.setEspecialidade(sc.nextLine());
@@ -186,7 +268,7 @@ public class Main {
 	}
 
 	public static void cadastrarConsulta(Scanner sc) {
-		if(consultorio.getPaciente().size() > 0 && !consultorio.getMedicos().isEmpty()) {
+		if(!consultorio.getPaciente().isEmpty() && !consultorio.getMedicos().isEmpty()) {
 			Consulta c = new Consulta();
 			
 			System.out.println("Data: ");
@@ -195,7 +277,7 @@ public class Main {
 			System.out.println("Hora: ");
 			c.setHora(sc.nextLine());
 			
-			Boolean existe = false;
+			boolean existe = false;
 			do {
 				System.out.println("CPF do Paciente: ");
 				String cpf = sc.nextLine();
@@ -239,7 +321,7 @@ public class Main {
 	}
 	
 	public static void imprimirDadosDeUmMedico(Scanner sc) {
-		if(consultorio.getMedicos().size() > 0) {
+		if(!consultorio.getMedicos().isEmpty()) {
 			System.out.println("Digite o CRM do Médico que você deseja ver as informações: ");
 			int crm = sc.nextInt();
 			sc.nextLine();
@@ -263,7 +345,7 @@ public class Main {
 	}
 	
 	public static void imprimirDadosDeUmPaciente(Scanner sc) {
-		if(consultorio.getPaciente().size() > 0) {
+		if(!consultorio.getPaciente().isEmpty()) {
 			System.out.println("Digite o CPF do Paciente que você deseja ver as informações: ");
 			String cpf = sc.nextLine();
 			
@@ -286,7 +368,7 @@ public class Main {
 	}
 	
 	public static void imprimirDadosDeUmaConsulta(Scanner sc) {
-		if(consultorio.getConsulta().size() > 0) {
+		if(!consultorio.getConsulta().isEmpty()) {
 			System.out.println("Digite o número da Consulta que você deseja ver as informações: ");
 			int numero = sc.nextInt();
 			sc.nextLine();
@@ -338,7 +420,7 @@ public class Main {
 	}
 	
 	public static void removerMedico(Scanner sc) {
-		if(consultorio.getMedicos().size() > 0) {
+		if(!consultorio.getMedicos().isEmpty()) {
 			System.out.println("Digite o CRM do Médico que você deseja remover: ");
 			int crm = sc.nextInt();
 			sc.nextLine();
@@ -351,7 +433,7 @@ public class Main {
 	}
 	
 	public static void removerPaciente(Scanner sc) {
-		if(consultorio.getPaciente().size() > 0) {
+		if(!consultorio.getPaciente().isEmpty()) {
 			System.out.println("Digite o CPF do Paciente que você deseja remover: ");
 			String cpf = sc.nextLine();
 			
@@ -362,7 +444,7 @@ public class Main {
 	}
 	
 	public static void removerConsulta(Scanner sc) {
-		if(consultorio.getConsulta().size() > 0) {
+		if(!consultorio.getConsulta().isEmpty()) {
 			System.out.println("Digite o número da Consulta que você deseja remover: ");
 			int numero = sc.nextInt();
 			sc.nextLine();

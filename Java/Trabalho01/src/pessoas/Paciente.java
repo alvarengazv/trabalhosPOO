@@ -4,14 +4,21 @@ public class Paciente extends Pessoa {
 	private String relato;
 	private String medicacaoConsumidaRegularmente;
 
-	public Paciente(String nome, char sexo, String endereco, String cpf, int telefone, int identidade, String relato,
+	@Override
+	public void imprimir() {
+		super.imprimir();
+		System.out.println("Relato: " + this.relato);
+		System.out.println("Medicação: " + this.medicacaoConsumidaRegularmente);
+	}
+
+	public Paciente(String nome, char sexo, String endereco, String cpf, String telefone, int identidade, String relato,
 			String medicacaoConsumidaRegularmente) {
 		super(nome, sexo, endereco, cpf, telefone, identidade);
 		this.relato = relato;
 		this.medicacaoConsumidaRegularmente = medicacaoConsumidaRegularmente;
 	}
 
-	public Paciente(String nome, char sexo, String endereco, String cpf, int telefone, int identidade) {
+	public Paciente(String nome, char sexo, String endereco, String cpf, String telefone, int identidade) {
 		super(nome, sexo, endereco, cpf, telefone, identidade);
 	}
 	
@@ -19,12 +26,7 @@ public class Paciente extends Pessoa {
 		super();
 	}
 	
-	@Override
-	public void imprimir() {
-		super.imprimir();
-		System.out.println("Relato: " + this.relato);
-		System.out.println("Medicação: " + this.medicacaoConsumidaRegularmente);
-	}
+
 	
 	public String getRelato() {
 		return relato;

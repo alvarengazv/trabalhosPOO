@@ -5,10 +5,10 @@ public class Pessoa {
 	protected char sexo;
 	protected String endereco;
 	protected String cpf;
-	protected int telefone;
+	protected String telefone;
 	protected int identidade;
 	
-	public Pessoa(String nome, char sexo, String endereco, String cpf, int telefone, int identidade) {
+	public Pessoa(String nome, char sexo, String endereco, String cpf, String telefone, int identidade) {
 		super();
 		this.nome = nome;
 		this.sexo = sexo;
@@ -63,11 +63,11 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

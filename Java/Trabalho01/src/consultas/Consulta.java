@@ -26,7 +26,7 @@ public class Consulta {
 		System.out.println("Número da Consulta: " + this.numero);
 		System.out.println("Data: " + this.data);
 		System.out.println("Hora: " + this.hora);
-		System.out.println("CPF Paciente: " + this.cpfPaciente);
+		System.out.println("CPF pessoas.Paciente: " + this.cpfPaciente);
 		System.out.println("CRM Médico: " + this.crmMedico);
 	}
 

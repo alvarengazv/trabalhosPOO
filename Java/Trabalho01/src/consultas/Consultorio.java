@@ -1,18 +1,19 @@
 package consultas;
 
+import pessoas.Medico;
+import pessoas.Paciente;
+import consultas.Consulta;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import pessoas.Medico;
-import pessoas.Paciente;
 
 public class Consultorio {
 	private List<Medico> medicos;
 	private List<Paciente> paciente;
 	private List<Consulta> consulta;
 	private int contPaciente;
-	private int telefone;
+	private String telefone;
 	private String endereco;
 	private String nome;
 	
@@ -23,7 +24,7 @@ public class Consultorio {
 		this.consulta = new ArrayList<Consulta>();
 	}
 	
-	public Consultorio(int telefone, String endereco, String nome) {
+	public Consultorio(String telefone, String endereco, String nome) {
 		super();
 		this.contPaciente = 0;
 		this.telefone = telefone;
@@ -46,6 +47,7 @@ public class Consultorio {
 			if(p.getCpf().equals(cpf)) {
 				aux++;
 				this.paciente.remove(p);
+				this.contPaciente--;
 				System.out.println("Paciente removido com sucesso!");
 				break;
 			}
@@ -98,7 +100,7 @@ public class Consultorio {
 	}
 	
 	public void imprimirListaPacientes() {
-		if(this.paciente.size() > 0) {
+		if(!this.paciente.isEmpty()) {
 			int n = 0;
 			for(Paciente p: this.paciente){
 				System.out.println("Paciente " + (++n));
@@ -110,7 +112,7 @@ public class Consultorio {
 	}
 	
 	public void imprimirListaMedicos() {
-		if(this.medicos.size() > 0) {
+		if(!this.medicos.isEmpty()) {
 			int n = 0;
 			for(Medico m: this.medicos){
 				System.out.println("Médico " + (++n));
@@ -170,11 +172,11 @@ public class Consultorio {
 		this.contPaciente = contPaciente;
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
