@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
-#include "Classes/Documento.hpp"
-#include "Classes/FilaDeImpressao.hpp"
+#include "Documento.hpp"
+#include "FilaDeImpressao.hpp"
 
 using namespace std;
 
