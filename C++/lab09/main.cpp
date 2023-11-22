@@ -11,8 +11,6 @@
 
 using namespace std;
 
-#define MAX 25
-
 void limpaConsole(){
     system("cls||clear");
 }
